@@ -101,8 +101,19 @@ namespace ChartsMix.Controllers
         {
             try
             {
+                var errorMessage = "";
+                if (model == null || model.Name == null || model.Name == string.Empty)
+                {
+                    errorMessage = "Name field is required";
+                    throw new Exception(errorMessage);
+                }
+                if (model.Ids == null || model.Ids.Length == 0)
+                {
+                    errorMessage = "You must select a meter";
+                    throw new Exception(errorMessage);
+                }
                 db = new ChartsDatabaseManager();
-                int response = await db.AddGroup(model);
+                var response = await db.AddGroup(model);
                 return Json(response, JsonRequestBehavior.AllowGet);
             }
             catch(Exception ex)
