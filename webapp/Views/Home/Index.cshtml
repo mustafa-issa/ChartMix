@@ -27,7 +27,7 @@
         <!--Pie Chart-->
         <div class="row">
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <div class="jarviswidget" id="wid-id-5">
+                <div class="jarviswidget" id="pie3dChartWidget">
                     <header>
                         <h2>Pie Chart </h2>
                     </header>
@@ -36,7 +36,7 @@
             </article>
 
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <div class="jarviswidget" id="wid-id-6">
+                <div class="jarviswidget" id="pieGroupChartWidget">
                     <header>
                         <h2>Pie Group Chart</h2>
                     </header>
@@ -60,14 +60,12 @@
 
             <!-- NEW WIDGET START -->
             <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="jarviswidget" id="wid-id-3">
+                <div class="jarviswidget" id="barChartWidget">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
                         <h2>Bar Chart</h2>
-
                     </header>
                     @Html.Partial("_BarChart", Model.barChartModel, new ViewDataDictionary { TemplateInfo = new TemplateInfo { HtmlFieldPrefix = "barChartModel" } })
-
                 </div>
                 <!-- end widget -->
 
@@ -80,11 +78,10 @@
 
             <!-- NEW WIDGET START -->
             <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="jarviswidget" id="wid-id-4">
+                <div class="jarviswidget" id="lineChartWidget">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
                         <h2>Line Chart</h2>
-
                     </header>
                     @Html.Partial("_LineChart", Model.lineChartModel, new ViewDataDictionary { TemplateInfo = new TemplateInfo { HtmlFieldPrefix = "lineChartModel" } })
 
@@ -172,7 +169,31 @@
                 forceParse: 0,
                 showMeridian: 1
             });
-            // PAGE RELATED SCRIPTS
+            // PAGE RELATED SCRIPTS  
+
+            $('#pie3dChartWidget a[data-original-title~=Edit] i').on("click", function () {
+                if ($('#pie3dChartWidget a[data-original-title~=Edit] i').hasClass("fa-save")) {
+                    GetPieChart();
+                }
+            });
+
+            $('#barChartWidget a[data-original-title~=Edit] i').on("click", function () {
+                if ($('#barChartWidget a[data-original-title~=Edit] i').hasClass("fa-save")) {
+                    GetBarChart();
+                }
+            });
+
+            $('#pieGroupChartWidget a[data-original-title~=Edit] i').on("click", function () {
+                if ($('#pieGroupChartWidget a[data-original-title~=Edit] i').hasClass("fa-save")) {
+                    GetGroupChart();
+                }
+            });
+
+            $('#lineChartWidget a[data-original-title~=Edit] i').on("click", function () {
+                if ($('#lineChartWidget a[data-original-title~=Edit] i').hasClass("fa-save")) {
+                    GetLineChart();
+                }
+            });
 
             $('.tree > ul').attr('role', 'tree').find('ul').attr('role', 'group');
             $('.tree').find('li:has(ul)').addClass('parent_li').attr('role', 'treeitem').find(' > span').attr('title', 'Collapse this branch').on('click', function (e) {

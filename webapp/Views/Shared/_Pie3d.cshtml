@@ -2,7 +2,7 @@
 @using Highsoft.Web.Mvc.Charts
 @model Pie3DModel
 <div>
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Index", "Home"))
     {
         <div class="jarviswidget-editbox">
             <div class="widget-body">
@@ -29,8 +29,11 @@
         </div>
     }
     <div class="widget-body">
+
             <div id="pieChart"></div></div>
+
 </div>
+
 
 <script>
 
@@ -66,7 +69,9 @@
             }
         });
     }
+
     function DrawPieChart(arr) {
+
         Highcharts.chart('pieChart', {
             chart: {
                 type: 'pie',
@@ -100,5 +105,6 @@
             }]
         });
     }
+    
 
 </script>
