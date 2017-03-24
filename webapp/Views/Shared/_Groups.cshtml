@@ -1,7 +1,7 @@
 ﻿@using ChartsMix.Models
 @model Group
 <div id="myTabContent1" class="tab-content padding-10">
-    <div class="tab-pane fade in active" id="s1">
+    <div class="tab-pane fade in active" id="pieGroupS1">
         <div>
             <select multiple style="width:100%" id="ddlGroups" class="select2">
                 @Html.Raw(Helpers.FormGroups())
@@ -13,7 +13,7 @@
         </div>
     </div>
     
-    <div class="tab-pane fade" id="s2">
+    <div class="tab-pane fade" id="pieGroupS2">
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
@@ -52,13 +52,13 @@
             dataType: "json",
             traditional: true,
             success: function (data) {
-                $('#ddlGroups').append($("<option></option>").attr("value", data).text($('#GroupName').val()));
+                $('#ddlGroups').append($("<option></option>").attr("value", data).text($('#pieGroupName').val()));
                 $('#informationMessage').append("<div class='alert alert-success col-md-8 col-md-offset-2 fade in'><button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-check'></i><strong>Success</strong> Group " + $('#GroupName').val() + " has been added.</div>")
-                $('#s1toggle').click();
+                $('#pieGrouptoggle').click();
             },
             error: function (data, dates) {
                 $('#informationMessage').append("<div class='alert alert-danger col-md-8 col-md-offset-2 fade in'><button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-check'></i><strong>Success</strong> Group " + $('#GroupName').val() + " hasn't been added.</div>")
-                $('#s1toggle').click();
+                $('#pieGrouptoggle').click();
             }
         });
     }

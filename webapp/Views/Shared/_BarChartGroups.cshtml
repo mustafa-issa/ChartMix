@@ -1,18 +1,18 @@
 ﻿@using ChartsMix.Models
 @model Group
 <div id="barGroupTabs" class="tab-content padding-10">
-    <div class="tab-pane fade in active" id="bar1">
+    <div class="tab-pane fade in active" id="barGroupS1">
         <div>
             <select multiple style="width:100%" id="ddlBarGroups" class="select2">
                 @Html.Raw(Helpers.FormGroups())
             </select>
         </div>
         <br />
-        <div class="row" id="informationMessage">
+        <div class="row" id="barGroupInformation">
         </div>
     </div>
 
-    <div class="tab-pane fade" id="bar2">
+    <div class="tab-pane fade" id="barGroupS2">
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
@@ -50,12 +50,12 @@
             dataType: "json",
             traditional: true,
             success: function (data) {
-                $('#ddlGroups').append($("<option></option>").attr("value", data).text($('#GroupName').val()));
-                $('#informationMessage').append("<div class='alert alert-success col-md-8 col-md-offset-2 fade in'><button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-check'></i><strong>Success</strong> Group " + $('#GroupName').val() + " has been added.</div>")
+                $('#ddlBarGroups').append($("<option></option>").attr("value", data).text($('#BarGroupName').val()));
+                $('#barGroupInformation').append("<div class='alert alert-success col-md-8 col-md-offset-2 fade in'><button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-check'></i><strong>Success</strong> Group " + $('#GroupName').val() + " has been added.</div>")
                 $('#s1toggle').click();
             },
-            error: function (data, dates) {
-                $('#informationMessage').append("<div class='alert alert-danger col-md-8 col-md-offset-2 fade in'><button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-check'></i><strong>Success</strong> Group " + $('#GroupName').val() + " hasn't been added.</div>")
+            error: function (data,bla,stupid,hoe) {
+                $('#barGroupInformation').append("<div class='alert alert-danger col-md-8 col-md-offset-2 fade in'><button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-check'></i><strong>Success</strong> " + data.Message)
                 $('#s1toggle').click();
             }
         });

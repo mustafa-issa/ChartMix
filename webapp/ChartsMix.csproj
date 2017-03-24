@@ -14,7 +14,7 @@
     <RootNamespace>ChartsMix</RootNamespace>
     <AssemblyName>ChartsMix</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -1172,7 +1172,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56110</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/ChartsMix</IISUrl>
+          <IISUrl>http://localhost:56110/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
